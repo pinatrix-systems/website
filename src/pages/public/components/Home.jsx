@@ -1,125 +1,85 @@
+import { Layers, Cpu, Clock, Rocket } from "lucide-react";
+import useReveal from "../../../hooks/useReveal";
+
+const STATS = [
+  { num: "10+", label: "Projects Delivered", Icon: Layers },
+  { num: "5+", label: "Technologies", Icon: Cpu },
+  { num: "2+", label: "Years of Innovation", Icon: Clock },
+  { num: "Future", label: "Is Our Focus", Icon: Rocket },
+];
+
+const DIVISIONS = [
+  {
+    variant: "systems",
+    name: "PINATRIX SYSTEMS",
+    tag: "Software & Digital Solutions",
+    desc: "Scalable software, web, mobile & enterprise systems.",
+  },
+  {
+    variant: "studios",
+    name: "PINATRIX STUDIOS",
+    tag: "Gaming & Interactive Experiences",
+    desc: "Game development, simulations & immersive technologies.",
+  },
+  {
+    variant: "entertainment",
+    name: "PINATRIX ENTERTAINMENT",
+    tag: "Educational & Digital Media",
+    desc: "Kids content, music, education systems & interactive learning.",
+  },
+  {
+    variant: "labs",
+    name: "PINATRIX LABS",
+    tag: "AI, Security & Future Technologies",
+    desc: "Research, AI, surveillance, security & defense innovations.",
+  },
+];
+
 export default function Home() {
+  const statsRef = useReveal();
+
   return (
-    <>
-      <section id="home">
-        <div className="hero">
-          <div className="hero-inner">
-            <h1 className="hero-title">
-              <span className="line-white">DESIGN</span>
-              <span className="line-white">BUILD</span>
-              <span className="line-cyan">SCALE</span>
-            </h1>
-            <p className="hero-subtitle">Building Future-Ready Digital Systems</p>
-            <p className="hero-tags">
-              Gaming. AI. Software. Entertainment.
-              <br />
-              Security. And Beyond.
-            </p>
-            <div className="hero-btns">
-              <a href="#" className="btn-primary">
-                Explore Ecosystem
-              </a>
-              <a href="#" className="btn-outline">
-                View Our Work
-              </a>
-            </div>
+    <section id="home">
+      {/* ── HERO ── */}
+      <div className="hero">
+        <div className="hero-inner">
+          <h1 className="hero-title">
+            <span className="line-white">DESIGN</span>
+            <span className="line-white">BUILD</span>
+            <span className="line-cyan">SCALE</span>
+          </h1>
+          <p className="hero-subtitle">Building Future-Ready Digital Systems</p>
+          <p className="hero-tags">
+            Gaming. AI. Software. Entertainment.
+            <br />
+            Security. And Beyond.
+          </p>
+          <div className="hero-btns">
+            <a href="#divisions" className="btn-primary">
+              Explore Ecosystem
+            </a>
+            <a href="#contact" className="btn-outline">
+              View Our Work
+            </a>
           </div>
         </div>
+      </div>
 
-        <div className="ecosystem">
-          <p className="section-eyebrow">OUR ECOSYSTEM</p>
-          <h2 className="section-title">Four Divisions. One Vision.</h2>
 
-          <div className="divisions-grid">
-            <div className="division-card card-systems">
-              <div className="card-icon icon-systems">
-                <img src="/logo.svg" alt="Pinatrix Systems" />
-              </div>
-              <div className="card-name">PINATRIX SYSTEMS</div>
-              <div className="card-tagline tag-systems">Software & Digital Solutions</div>
-              <div className="card-desc">Scalable software, web, mobile & enterprise systems.</div>
-              <a href="#" className="card-explore explore-systems">
-                Explore →
-              </a>
-            </div>
-
-            <div className="division-card card-studios">
-              <div className="card-icon icon-studios">
-                <img src="/logo.svg" alt="Pinatrix Studios" />
-              </div>
-              <div className="card-name">PINATRIX STUDIOS</div>
-              <div className="card-tagline tag-studios">Gaming & Interactive Experiences</div>
-              <div className="card-desc">Game development, simulations & immersive technologies.</div>
-              <a href="#" className="card-explore explore-studios">
-                Explore →
-              </a>
-            </div>
-
-            <div className="division-card card-entertainment">
-              <div className="card-icon icon-entertainment">
-                <img src="/logo.svg" alt="Pinatrix Entertainment" />
-              </div>
-              <div className="card-name">PINATRIX ENTERTAINMENT</div>
-              <div className="card-tagline tag-entertainment">Educational & Digital Media</div>
-              <div className="card-desc">Kids content, music, education systems & interactive learning.</div>
-              <a href="#" className="card-explore explore-entertainment">
-                Explore →
-              </a>
-            </div>
-
-            <div className="division-card card-labs">
-              <div className="card-icon icon-labs">
-                <img src="/logo.svg" alt="Pinatrix Labs" />
-              </div>
-              <div className="card-name">PINATRIX LABS</div>
-              <div className="card-tagline tag-labs">AI, Security & Future Technologies</div>
-              <div className="card-desc">Research, AI, surveillance, security & defense innovations.</div>
-              <a href="#" className="card-explore explore-labs">
-                Explore →
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="stats-bar">
-          <div className="stat-item">
+      {/* ── STATS BAR ── */}
+      <div className="stats-bar" ref={statsRef}>
+        {STATS.map(({ num, label, Icon }, i) => (
+          <div className={`stat-item reveal delay-${i + 1}`} key={label}>
             <div className="stat-icon">
-              <img src="/logo.svg" alt="Pinatrix Systems" />
+              <Icon size={22} strokeWidth={1.6} color="var(--clr-accent)" />
             </div>
             <div>
-              <div className="stat-number">10+</div>
-              <div className="stat-label">Projects Delivered</div>
+              <div className="stat-number">{num}</div>
+              <div className="stat-label">{label}</div>
             </div>
           </div>
-          <div className="stat-item">
-            <div className="stat-icon">
-              <img src="/logo.svg" alt="Pinatrix Studios" />
-            </div>
-            <div>
-              <div className="stat-number">5+</div>
-              <div className="stat-label">Technologies</div>
-            </div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-icon">
-              <img src="/logo.svg" alt="Pinatrix Entertainment" />
-            </div>
-            <div>
-              <div className="stat-number">2+</div>
-              <div className="stat-label">Years of Innovation</div>
-            </div>
-          </div>
-          <div className="stat-item">
-            <div className="stat-icon">
-              <img src="/logo.svg" alt="Pinatrix Labs" />
-            </div>
-            <div>
-              <div className="stat-number">Future</div>
-              <div className="stat-label">Is Our Focus</div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+        ))}
+      </div>
+    </section>
   );
 }
