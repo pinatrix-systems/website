@@ -117,7 +117,7 @@ nav {
     overflow: hidden;
     display: flex;
     align-items: center;
-    background-image: url('assets/logo.svg');
+    background-image: url('/logo.svg');
     background-size: cover;
     background-position: center right;
     background-repeat: no-repeat;
