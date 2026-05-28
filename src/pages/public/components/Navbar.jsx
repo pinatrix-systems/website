@@ -2,13 +2,13 @@ export default function Navbar() {
   return (
     <>
       <nav>
-        <a href="#home" class="nav-logo">
+        <a href="#home" className="nav-logo">
           <img src="/logo-text.svg" alt="Pinatrix" />
         </a>
 
-        <ul class="nav-links">
+        <ul className="nav-links">
           <li>
-            <a href="#home" class="active">
+            <a href="#home" className="active">
               Home
             </a>
           </li>
@@ -32,7 +32,7 @@ export default function Navbar() {
           </li>
         </ul>
 
-        <a href="#" class="nav-cta">
+        <a href="#" className="nav-cta">
           Get in Touch
         </a>
       </nav>
